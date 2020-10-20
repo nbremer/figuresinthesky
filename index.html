@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>Figures in the Sky</title>
+    <meta name="author" content="Nadieh Bremer - Visual Cinnamon">
+    <meta name="title" content="Figures in the Sky">
+    <meta name="description" content="How current & past cultures across the World have seen their myths and legends in the stars">
+    <meta name="keywords" content="data, visualization, visualisation, data visualization, data visualisation, information, information visualization, information visualisation, dataviz, datavis, infoviz, infovis, collaboration, data art">
+    <meta name="theme-color" content="#3c7e16">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="192x192" href="img/favicon/favicon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png" />
+    
+    <!-- Social media -->
+    <meta property="og:title" content="Figures in the Sky">
+    <meta property="og:site_name" content="Visual Cinnamon">
+    <meta property="og:url" content="https://figuresinthesky.visualcinnamon.com">
+    <meta property="og:description" content="How current & past cultures across the World have seen their myths and legends in the stars">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://figuresinthesky.visualcinnamon.com/img/figuresinthesky_feature.jpg">
+	<meta property="og:image:type" content="image/jpeg">
+	<meta property="og:image:width" content="1920">
+	<meta property="og:image:height" content="1080">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@NadiehBremer">
+    <meta name="twitter:creator" content="@NadiehBremer">
+    <meta name="twitter:title" content="Figures in the Sky">
+    <meta name="twitter:description" content="How current & past cultures across the World have seen their myths and legends in the stars">
+    <meta name="twitter:image:src" content="https://figuresinthesky.visualcinnamon.com/img/figuresinthesky_feature.jpg">
+
+	<!-- JavaScript plugin files -->
+    <script src="plugins/d3.min.js"></script>
+    <script src="plugins/d3-annotation.min.js"></script>
+    <script src="plugins/d3-contour.v1.min.js"></script>
+    <script src="plugins/webfont.js"></script>
+    <script src="plugins/chroma.js"></script>
+    <script src="plugins/rxjs.min.js"></script>
+    <script src="plugins/modal.min.js"></script>
+    <script src="plugins/breathe.js"></script>
+    
+    <!-- Custom JavaScript files -->
+    <script src="js/main.js"></script>
+	<script src="js/drawDeepSpace.js"></script>
+	<script src="js/drawConstellations.js"></script>
+	<script src="js/drawStars.js"></script>
+	<script src="js/setupStereographicProjection.js"></script>
+	<script src="js/setupCircularSkyMap.js"></script>
+	<script src="js/createStatisticalChart.js"></script>
+	<script src="js/createStraightSkyMapLayout.js"></script>
+	<!-- <script src="js/createStraightSkyMapLayoutFullCanvas.js"></script> -->
+	<script src="js/createCentralCircleLayout.js"></script>
+	<script src="js/createMiniMapLayout.js"></script>
+
+	<!-- Styling -->
+    <link href="css/modal.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Glass+Antiqua|Poppins:300,400,400i,600,600i" rel="stylesheet">
+
+</head>
+
+<body onload="loadAllAssets()">
+
+    <!-- Title -->
+    <section id="section-header">
+        <div id="header-group">
+            <div id="chart-header" class="chart-rectangular">
+                <div class="background"></div>
+            </div>
+            <div id="title-header-group">
+                <h1>Figures in the Sky</h1>
+                <h3>How cultures across the World have seen their myths and legends in the stars</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro text -->
+    <section id="section-text-intro" class="section-text">
+        <p>No matter where you are on Earth, we all look up to the same sky during the dark nights. You might see a different section of it depending on your exact location, time & season, nevertheless the stars have fascinated humans across time and continents.</p>
+        <p>Our own creativity combined with stories about local legends and myths have created a diverse set of different constellations. And even though the stars don't change, people have found many different shapes in the same sky. From humans, to animals, to objects, and even abstract concepts.</p>
+    </section>
+    
+    <!-- Text Orion -->
+    <section id="section-text-orion" class="section-text">
+        <h2>The same sky, different figures</h2>
+        <p>Let's compare 28 different <a href="#sky-cultures">"sky cultures"</a> to see differences and similarities in the shapes they've seen in the night sky. Ranging from the so-called "Modern" or <span class="western">Western</span> constellations, to <span class="chinese">Chinese</span>, <span class="maori">Maori</span> and even a few shapes from historical cultures such as the <span class="aztec">Aztecs</span>.</p>
+        <p>Take the star <span class="red">Betelgeuse</span>. This red supergiant is one of the brightest stars in the night sky. In proper darkness, you can even <i>see</i> that it shines in a distinctly red color. It's part of one of the easiest to distinguish modern constellations known as <span class="red">Orion</span>, named after a gigantic, supernaturally strong hunter from Greek mythology.</p>
+
+        <p>The visualization below shows how <span class="red">Betelgeuse</span> has been used by 17 cultures (out of the 28) to form constellations, each represented by a different color. The main shape of a <i>long rectangle that is "tightened by a belt" in the center</i> is clearly visible, with many lines of different constellations appearing side by side. These bright stars thus seem to form a distinctive figure. However, there are some fascinating alternates in there too; mostly humanoid shapes by the <span class="egyptian">Egyptians</span>, <span class="navajo">Navajo</span> and <span class="tupi">Tupi</span>.</p>
+        <p class="chart-explanation-text">The separate constellation shapes of each culture can be found in a ring around the main circle. <span class="red">Click</span> on any of the smaller circles to make it appear in the center. To get back to the default view showing all constellations simultaneously, <span class="red">click</span> on the central star map.</p>
+    </section>
+
+    <!-- Chart Orion -->
+    <section id="section-chart-orion" class="section-circular-chart">
+        <div id="chart-container-orion" class="chart-container-circular">
+            <div id="chart-orion" class="chart-circular"></div>
+        </div>        
+    </section>
+
+    <!-- Text Sirius -->
+    <section id="section-text-sirius" class="section-text">
+        <p class="sidenote"><span class="red">Sirius</span>, said to literally mean "scorching", is quite an appropriate name</p>
+        <p class="no-top">However, if we instead focus on <b class="red string-click sirius-click">Sirius</b>, the brightest star in the night sky, no clear shape is shared across cultures. In <span class="western">Western</span> culture it belongs to <span class="red">Canis Major</span>, i.e. the Large Dog, and a dog shape can indeed be recognized. But other cultures have seen Sirius as part of an Eagle, Wolf and several more animals.</p>
+
+        <p class="chart-explanation-text"><span class="red">Click</span> on the sky map of <span class="red">Sirius</span> below if you want to see it visualized in a bigger sky map with all of the separate constellations around it.</p>
+    </section>
+
+    <!-- Chart Sirius -->
+    <section id="section-chart-sirius" class="section-mini-chart">
+        <div id="chart-container-sirius" class="chart-container-mini">
+            <div id="chart-sirius"></div>
+        </div>        
+    </section>
+
+    <!-- Text Big Dipper -->
+    <section id="section-text-big-dipper" class="section-text">
+        <p class="sidenote">The Big Dipper is actually part of a larger <span class="western">Western</span> constellation known as <span class="red">Ursa Major</span>, or Big Bear</p>
+        <p class="no-top">Perhaps the most universally recognized figure across all cultures is the first one that many people learn as a kid; the <span class="red">Big Dipper</span>. Roughly 17 out of the 20 constellations that use <b class="red string-click dubhe-click">Dubhe</b>, the top right star, share practically the same "cooking pan" shape. And even though the shapes are almost the same, the <i>actual figures</i> that were seen differ quite a lot. From an Elk, a Caribou, to Carts, and even a "Group of organized thieves" by the <span class="macedonian">Macedonians</span>.</p>
+
+        <p class="chart-explanation-text"><span class="red">Click</span> on the sky map of <span class="red">Dubhe</span> below if you want to see it visualized in a bigger sky map with all of the separate constellations around it.</p>
+    </section>
+
+    <!-- Chart Big Dipper -->
+    <section id="section-chart-big-dipper" class="section-mini-chart">
+        <div id="chart-container-big-dipper" class="chart-container-mini">
+            <div id="chart-big-dipper"></div>
+        </div>        
+    </section>
+
+    <!-- Text Small multiples -->
+    <section id="section-text-multiple" class="section-text">
+        <p class="no-top">Below are several more famous or bright stars & constellations. For some of them, roughly the same shapes have been seen by cultures across the World, such as the half circle of the <span class="red">Corona Borealis</span> constellation around <b class="red string-click alphekka-click">Alphekka</b>. Whereas others show quite the "chaos" of lines, see <b class="red string-click mirphak-click">Mirphak</b> for example.</p>
+        <p class="chart-explanation-text">As with the previous two maps, you can <span class="red">click</span> on each of the stars below to see it visualized in a bigger sky map that pops up.</p>
+    </section>
+
+    <!-- Chart Small multiples -->
+    <section id="section-chart-small-multiple">
+        <div id="chart-container-small-multiple" class="chart-container-circular"></div>        
+    </section>
+
+    <!-- Text Intro to stats -->
+    <section id="section-text-stats" class="section-text">
+        <h2>Brightness doesn't determine all</h2>
+        <p>Let's look at all 2168 unique stars that are included in at least one constellation across all <a href="#sky-cultures">sky cultures</a>. The chart below shows the stars according to their brightness from left to right, and the number of constellations the star appears in from top to bottom. A general trend is visible: The brighter the star, the more constellations it's included in. This makes sense, since brighter stars just stand out more.</p>
+        <p class="sidenote">Another thing that most likely plays a role is "good placement" around the ecliptic so it's visible in many regions of the Earth</p>
+        <p>However, some stars stand out because they "rise" from the general mass; they are included in constellations more often than you'd expect based on their brightness. The main reason appears to be that they are often part of an easy to recognize "shape" of stars, such as <b class="red string-click betelgeuse-click">Orion's belt</b>, the <b class="red string-click atlas-click">Pleiades</b>, and the <b class="red string-click alphekka-click">Corona Borealis</b> and <b class="red string-click aldebaran-click">Taurus</b> constellations.</p>
+        <p>And vice versa, several other stars are used less often than expected for their brightness. In these cases the star is often a bit of a loner. There is no group of close-by stars to form an easy to recognize shape with, such as <b class="red string-click sirius-click">Sirius</b> and <b class="red string-click canopus-click">Canopus</b> all the way on the right.</p>
+    </section>
+
+    <!-- Charts with some stats -->
+    <section id="section-chart-stats">
+        <div id="chart-container-stats">
+            <div id="chart-stats-stars" class="chart-stats"></div>
+        </div>
+        <p id="chart-stats-explanation-text"><b>NOTE</b> | Star colors, based on their actual visible colors, have been exaggerated/saturated for better visibility. The sizes of the stars are (not-linearly) scaled to the <i>actual brightness</i> of the stars (called absolute magnitude); how bright they would be if they were all placed the same distance from Earth. Because stars are all at widely different distances from the Earth, how bright a star appears to us is called the <i>apparent</i> magnitude.</p>
+        <p class="sidenote"><span class="red">Sirius</span> is about 25 times more luminous than the Sun, but <span class="red">Canopus</span> is ~10,000 times more luminous!</p>
+        <p id="chart-stats-explanation-text">Take Sirius, the brightest star, it appears almost twice as bright to us as Canopus, the next brightest star. However, compared to the other stars we see at night it's actually not exceptionally bright. The reason it appears so bright to <i>us</i>, is because it's one of our closest neighboring stars (at 8.6 light-years).</p>
+    </section>
+
+    <!-- Text Full Sky Map -->
+    <section id="section-text-chosen-culture" class="section-text">
+        <h2>The full sky, different for each culture</h2>
+        <p class="sidenote">Try moving the sky horizontally...</p>
+        <p>To get a sense of the different cultures, we can also look at all (still known) constellations of each. The Sky Map below shows almost the entire sky, only excluding a thin strip around both the poles. Right now it's revealing the <span class="chosen-culture-title">Hawaiian (Starlines)</span> constellations, but you can see a different set of shapes by selecting any of the other cultures below the Sky Map.</p>
+
+        <!-- Title above the Sky Map | Has to be separate to control the height of the Sky Map -->
+        <h4>Constellations in the night sky as seen by <span class="chosen-culture-title">Hawaiian (Starlines)</span> culture</h4>
+        <div id="chosen-culture-stats">
+            <p>Number of Constellations — <span id="chosen-culture-number">13</span></p>
+            <p>Average number of ✩ per constellation — <span id="chosen-culture-average">7</span></p>
+        </div>
+    </section>
+
+    <!-- Chart Rectangular Sky Map -->
+    <section id="section-constellations">
+        <div id="chart-constellations" class="chart-rectangular">
+            <div id="constellations-background" class="background"></div>
+            <div id="constellations-lines" class="background"></div>
+            <div id="constellations-border-div"></div>
+        </div>
+    </section>
+
+    <!-- Text Culture explanations -->
+    <section id="section-cultures" class="section-text">
+        <h2 id="sky-cultures">Sky Cultures</h2>
+        <p class="sidenote">The constellation information for the cultures come from <a href="http://stellarium.org/">Stellarium</a>, a free and extremely popular planetarium.</p>
+        <p id="cultures-explanation">There are 28 cultures included in these analyses and visuals. Especially for the more ancient cultures, only a few constellations are still known today. You can read a little more about each culture by <span class="red">hovering</span> over the blocks. It's also possible to see <i>all the constellations</i> of the culture at once in the Sky Map above by <span class="red">clicking</span> on a culture's name.</p>
+        <div id="cultures-group">
+            <div class="culture-info-wrapper">
+                <div id="culture-arabic" class="culture-info arabic">
+                    <h3 class="culture-name">Arabic</h3>
+                    <p class="culture-number"><b>Constellations <span class="em-divider">—</span> 49</b></p>
+                    <p class="culture-mean-stars-note">Avg. ✩ per constellation <span class="em-divider">—</span> 11</p>
+                    <div class="culture-mean-stars"></div>
+                    <p class="culture-text">The shapes of these constellations were greatly influenced by Greek astronomy. Particularly by the work of the Greek astronomer, Ptolemy, which was translated into Arabic in the 9th century.</p>
+                </div>
+            </div>
+            <div class="culture-info-wrapper">
+                <div id="culture-arabic_moon_stations" class="culture-info arabic_moon_stations">
+                    <h3 class="culture-name">Arabic (Moon Stations)</h3>
+                    <p class="culture-number">Constellations <span class="em-divider">—</span> 28</p>
+                    <p class="culture-mean-stars-note">Avg. ✩ per constellation <span class="em-divider">—</span> 3.5</p>
+                    <div class="culture-mean-stars"></div>
+                    <p class="culture-text">The Arabic Moon stations describe the 28 sky areas chosen in ancient Arabia to define the daily location of the moon during its lunar month trip around the sky. Each station is recognized by a star or a group of stars.</p>
+                </div>
+            </div>
+            <div class="culture-info-wrapper">
+                <div id="culture-aztec" class="culture-info aztec">
+                    <h3 class="culture-name">Aztec</h3>
+                    <p class="culture-number">Constellations <span class="em-divider">—</span> 5</p>
+                    <p class="culture-mean-stars-note">Avg. ✩ per constellation <span class="em-divider">—</span> 8.5</p>
+                    <div class="culture-mean-stars"></div>
+                    <p class="culture-text">For the ancient Aztecs, the knowledge of the night skies and stars movement had great importance for their calendars, agriculture and religious cycles. Sadly, a great part of this knowledge was lost as consequence of the Spanish conquest.</p>
+                </div>
+            </div>
+            <div class="culture-info-wrapper">
+                <div id="culture-belarusian" class="culture-info belarusian">
+                    <h3 class="culture-name">Belarusian</h3>
+                    <p class="culture-number">Constellations <span class="em-divider">—</span> 20</p>
+                    <p class="culture-mean-stars-note">Avg. ✩ per constellation <span class="em-divider">—</span> 6</p>
+                    <div class="culture-mean-stars"></div>
+                    <p class="culture-text">The folk constellations found in Belarus, a country in Eastern Europe. People in the villages have preserved their traditional knowledge about the stars and related beliefs through to the present time.</p>
+                </div>
+            </div>
+            <div class="culture-info-wrapper">
+                <div id="culture-boorong" class="culture-info boorong">
+                    <h3 class="culture-name">Boorong</h3>
+                    <p class="culture-number">Constellations <span class="em-divider">—</span> 28</p>
+                    <p class="culture-mean-stars-note">Avg. ✩ per constellation <span class="em-divider">—</span> 8</p>
+                    <div class="culture-mean-stars"></div>
+                    <p class="culture-text">The Boorong tribe from Australia pride themselves upon knowing more of Astronomy than any other tribe.</p>
+                </div>
+            </div>
+            <div class="culture-info-wrapper">
+                <div id="culture-chinese" class="culture-info chinese">
+                    <h3 class="culture-name">Chinese</h3>
+                    <p class="culture-number"><b>Constellations <span class="em-divider">—</span> 318</b></p>
+                    <p class="culture-mean-stars-note">Avg. ✩ per constellation <span class="em-divider">—</span> 4.5</p>
+                    <div class="culture-mean-stars"></div>
+                    <p class="culture-text">Chinese constellations, known as "Xingguan", are typically smaller than the modern ones, but there are many many more.</p>
+                </div>
+            </div>
+            <div class="culture-info-wrapper">
+                <div id="culture-dakota" class="culture-info dakota">
+                    <h3 class="culture-name">Dakota</h3>
+                    <p class="culture-number">Constellations <span class="em-divider">—</span> 13</p>
+                    <p class="culture-mean-stars-note">Avg. ✩ per constellation <span class="em-divider">—</span> 8.5</p>
+                    <div class="culture-mean-stars"></div>
+                    <p class="culture-text">Dakota, Lakota and Nakota (also known as Sioux) are one of the groups of indigenous people of north-central United States and Canada.</p>
+                </div>
+            </div>
+            <div class="culture-info-wrapper">
+                <div id="culture-egyptian" class="culture-info egyptian">
+                    <h3 class="culture-name">Egyptian</h3>
+                    <p class="culture-number">Constellations <span class="em-divider">—</span> 28</p>
+                    <p class="culture-mean-stars-note">Avg. ✩ per constellation <span class="em-divider">—</span> 9</p>
+                    <div class="culture-mean-stars"></div>
+                    <p class="culture-text">Late Egyptian astronomy / astrology follows that of Greco / Roman culture. However there are differences in names.</p>
+                </div>
+            </div>
+            <div class="culture-info-wrapper">
+                <div id="culture-hawaiian_starlines" class="culture-info hawaiian_starlines">
+                    <h3 class="culture-name">Hawaiian (Starlines)</h3>
+                    <p class="culture-number">Constellations <span class="em-divider">—</span> 13</p>
+                    <p class="culture-mean-stars-note">Avg. ✩ per constellation <span class="em-divider">—</span> 7</p>
+                    <div class="culture-mean-stars"></div>
+                    <p class="culture-text">A recent adaptation based on the  teachings of a Polynesian master navigator, it divides the sky into four evenly sized star lines.</p>
+                </div>
+            </div>
+            <div class="culture-info-wrapper">
+                <div id="culture-indian" class="culture-info indian">
+                    <h3 class="culture-name">Indian Vedic</h3>
+                    <p class="culture-number">Constellations <span class="em-divider">—</span> 28</p>
+                    <p class="culture-mean-stars-note">Avg. ✩ per constellation <span class="em-divider">—</span> 2.5</p>
+                    <div class="culture-mean-stars"></div>
+                    <p class="culture-text">In Hindu tradition the ecliptic is divided into 27 parts, which correspond with 27 asterisms known as the nakṣatra-s.</p>
+                </div>
+            </div>
+            <div class="culture-info-wrapper">
+                <div id="culture-inuit" class="culture-info inuit">
+                    <h3 class="culture-name">Inuit</h3>
+                    <p class="culture-number">Constellations <span class="em-divider">—</span> 11</p>
+                    <p class="culture-mean-stars-note">Avg. ✩ per constellation <span class="em-divider">—</span> 3.5</p>
+                    <div class="culture-mean-stars"></div>
+                    <p class="culture-text">The constellations of the arctic universe, although the specifics of Inuit constellations might differ from tribe to tribe.</p>
+                </div>
+            </div>
+            <div class="culture-info-wrapper">
+                <div id="culture-japanese_moon_stations" class="culture-info japanese_moon_stations">
+                    <h3 class="culture-name">Japanese (Moon Stations)</h3>
+                    <p class="culture-number">Constellations <span class="em-divider">—</span> 28</p>
+                    <p class="culture-mean-stars-note">Avg. ✩ per constellation <span class="em-divider">—</span> 5</p>
+                    <div class="culture-mean-stars"></div>
+                    <p class="culture-text">Most astronomical observation in Japan until the Meiji Restoration was closely tied to astrological purposes.</p>
+                </div>
+            </div>
+            <div class="culture-info-wrapper">
+                <div id="culture-kamilaroi" class="culture-info kamilaroi">
+                    <h3 class="culture-name">Kamilaroi</h3>
+                    <p class="culture-number">Constellations <span class="em-divider">—</span> 13</p>
+                    <p class="culture-mean-stars-note">Avg. ✩ per constellation <span class="em-divider">—</span> 1</p>
+                    <div class="culture-mean-stars"></div>
+                    <p class="culture-text">The Kamilaroi (also known as Gomeroi) and Euahlayi peoples are Australian Aboriginal cultural groups located in the northern part of New South Wales.</p>
+                </div>
+            </div>
+            <div class="culture-info-wrapper">
+                <div id="culture-korean" class="culture-info korean">
+                    <h3 class="culture-name">Korean</h3>
+                    <p class="culture-number"><b>Constellations <span class="em-divider">—</span> 272</b></p>
+                    <p class="culture-mean-stars-note">Avg. ✩ per constellation <span class="em-divider">—</span> 4.5</p>
+                    <div class="culture-mean-stars"></div>
+                    <p class="culture-text">These constellations are based on the Cheon-Sang-Yeol-Cha-Bun-Ya-Zi-Do, the Korean Constellation map, which was carved on the stone in 1395.</p>
+                </div>
+            </div>
+            <div class="culture-info-wrapper">
+                <div id="culture-macedonian" class="culture-info macedonian">
+                    <h3 class="culture-name">Macedonian</h3>
+                    <p class="culture-number">Constellations <span class="em-divider">—</span> 19</p>
+                    <p class="culture-mean-stars-note">Avg. ✩ per constellation <span class="em-divider">—</span> 4</p>
+                    <div class="culture-mean-stars"></div>
+                    <p class="culture-text">These constellations are reconstructed based on the descriptions known to elderly inhabitants of Macedonian villages.</p>
+                </div>
+            </div>
+            <div class="culture-info-wrapper">
+                <div id="culture-maori" class="culture-info maori">
+                    <h3 class="culture-name">Maori</h3>
+                    <p class="culture-number">Constellations <span class="em-divider">—</span> 6</p>
+                    <p class="culture-mean-stars-note">Avg. ✩ per constellation <span class="em-divider">—</span> 5.5</p>
+                    <div class="culture-mean-stars"></div>
+                    <p class="culture-text">The Maori (New Zealand) constellations are similar to the Polynesian. Maritime themes are central to the Maori constellations and were used extensively in nautical navigation.</p>
+                </div>
+            </div>
+            <div class="culture-info-wrapper">
+                <div id="culture-mongolian" class="culture-info mongolian">
+                    <h3 class="culture-name">Mongolian</h3>
+                    <p class="culture-number">Constellations <span class="em-divider">—</span> 4</p>
+                    <p class="culture-mean-stars-note">Avg. ✩ per constellation <span class="em-divider">—</span> 6.5</p>
+                    <div class="culture-mean-stars"></div>
+                    <p class="culture-text">Mongolian constellations were inherited from contact with Alexander the Great and was largely influenced by Chinese civilization and Buddhist religion.</p>
+                </div>
+            </div>
+            <div class="culture-info-wrapper">
+                <div id="culture-navajo" class="culture-info navajo">
+                    <h3 class="culture-name">Navajo</h3>
+                    <p class="culture-number">Constellations <span class="em-divider">—</span> 8</p>
+                    <p class="culture-mean-stars-note">Avg. ✩ per constellation <span class="em-divider">—</span> 16</p>
+                    <div class="culture-mean-stars"></div>
+                    <p class="culture-text">The Navajo are the largest Native American tribe in the United States, extending across northeastern Arizona, southeastern Utah, and northwestern New Mexico.</p>
+                </div>
+            </div>
+            <div class="culture-info-wrapper">
+                <div id="culture-norse" class="culture-info norse">
+                    <h3 class="culture-name">Norse</h3>
+                    <p class="culture-number">Constellations <span class="em-divider">—</span> 6</p>
+                    <p class="culture-mean-stars-note">Avg. ✩ per constellation <span class="em-divider">—</span> 6</p>
+                    <div class="culture-mean-stars"></div>
+                    <p class="culture-text">Very few native Norse constellations have survived to this day. Being a seafaring nation, they probably had many.</p>
+                </div>
+            </div>
+            <div class="culture-info-wrapper">
+                <div id="culture-ojibwe" class="culture-info ojibwe">
+                    <h3 class="culture-name">Ojibwe</h3>
+                    <p class="culture-number">Constellations <span class="em-divider">—</span> 10</p>
+                    <p class="culture-mean-stars-note">Avg. ✩ per constellation <span class="em-divider">—</span> 9.5</p>
+                    <div class="culture-mean-stars"></div>
+                    <p class="culture-text">Ojibwe are one of the largest groups of indigenous people of North America (United States and Canada).</p>
+                </div>
+            </div>
+            <div class="culture-info-wrapper">
+                <div id="culture-romanian" class="culture-info romanian">
+                    <h3 class="culture-name">Romanian</h3>
+                    <p class="culture-number">Constellations <span class="em-divider">—</span> 39</p>
+                    <p class="culture-mean-stars-note">Avg. ✩ per constellation <span class="em-divider">—</span> 9.5</p>
+                    <div class="culture-mean-stars"></div>
+                    <p class="culture-text">Part of the Romanian constellations function as an "agrarian clock" for specific activities and tools used.</p>
+                </div>
+            </div>
+            <div class="culture-info-wrapper">
+                <div id="culture-sami" class="culture-info sami">
+                    <h3 class="culture-name">Sami</h3>
+                    <p class="culture-number">Constellations <span class="em-divider">—</span> 10</p>
+                    <p class="culture-mean-stars-note">Avg. ✩ per constellation <span class="em-divider">—</span> 3.5</p>
+                    <div class="culture-mean-stars"></div>
+                    <p class="culture-text">The Sami people are considered to be the native population of northern Norway, Sweden, Finland and West Russia (the Kola Peninsula).</p>
+                </div>
+            </div>
+            <div class="culture-info-wrapper">
+                <div id="culture-sardinian" class="culture-info sardinian">
+                    <h3 class="culture-name">Sardinian</h3>
+                    <p class="culture-number">Constellations <span class="em-divider">—</span> 11</p>
+                    <p class="culture-mean-stars-note">Avg. ✩ per constellation <span class="em-divider">—</span> 6.5</p>
+                    <div class="culture-mean-stars"></div>
+                    <p class="culture-text">The constellations of the ancient Sardinian cultures, from the Italian island in the Mediterranean Sea.</p>
+                </div>
+            </div>
+            <div class="culture-info-wrapper">
+                <div id="culture-siberian" class="culture-info siberian">
+                    <h3 class="culture-name">Siberian</h3>
+                    <p class="culture-number">Constellations <span class="em-divider">—</span> 3</p>
+                    <p class="culture-mean-stars-note">Avg. ✩ per constellation <span class="em-divider">—</span> 6.5</p>
+                    <div class="culture-mean-stars"></div>
+                    <p class="culture-text">A few constellations that are typical for the whole of Siberia.</p>
+                </div>
+            </div>
+            <div class="culture-info-wrapper">
+                <div id="culture-tongan" class="culture-info tongan">
+                    <h3 class="culture-name">Tongan</h3>
+                    <p class="culture-number">Constellations <span class="em-divider">—</span> 11</p>
+                    <p class="culture-mean-stars-note">Avg. ✩ per constellation <span class="em-divider">—</span> 4.5</p>
+                    <div class="culture-mean-stars"></div>
+                    <p class="culture-text">As in all Polynesian star lore, Tongan constellations descend from the practical application of nautical navigation.</p>
+                </div>
+            </div>
+            <div class="culture-info-wrapper">
+                <div id="culture-tukano" class="culture-info tukano">
+                    <h3 class="culture-name">Tukano</h3>
+                    <p class="culture-number">Constellations <span class="em-divider">—</span> 11</p>
+                    <p class="culture-mean-stars-note">Avg. ✩ per constellation <span class="em-divider">—</span> 17</p>
+                    <div class="culture-mean-stars"></div>
+                    <p class="culture-text">Tukano is the common name for a group of indigenous tribes who live around the northwestern region of Brazil, near Colombia and Venezuela.</p>
+                </div>
+            </div>
+            <div class="culture-info-wrapper">
+                <div id="culture-tupi" class="culture-info tupi">
+                    <h3 class="culture-name">Tupi</h3>
+                    <p class="culture-number">Constellations <span class="em-divider">—</span> 7</p>
+                    <p class="culture-mean-stars-note">Avg. ✩ per constellation <span class="em-divider">—</span> 21.5</p>
+                    <div class="culture-mean-stars"></div>
+                    <p class="culture-text">Tupi-Guarani is a name given to a family of languages spoken by the indigenous peoples of Brazil and other South American countries.</p>
+                </div>
+            </div>
+            <div class="culture-info-wrapper">
+                <div id="culture-western" class="culture-info western">
+                    <h3 class="culture-name">Western | Modern</h3>
+                    <p class="culture-number"><b>Constellations <span class="em-divider">—</span> 88</b></p>
+                    <p class="culture-mean-stars-note">Avg. ✩ per constellation <span class="em-divider">—</span> 8</p>
+                    <div class="culture-mean-stars"></div>
+                    <p class="culture-text">Western constellations are used internationally by modern astronomers. It has historical roots in Ancient Greek astronomy, with influences from Islamic astronomy (most of the traditional Western star names came from Arabic).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-conclusion" class="section-text">
+        <h2>The endless sky, binding us together</h2>
+        <p class="sidenote">The earliest written evidence for the existence of constellations comes from inscribed stones and clay writing tablets dating back to 3000 BC</p>
+        <p>It is innately human to see and use the figures in the night sky. To dream, to tell stories, to navigate, and more. Some groups of relatively bright stars are so distinct that cultures from around the world, separated by vast oceans, have connected them into a constellation in almost the same way. It's our human imagination and cultural history that ascribes wildly different <span class="red">figures</span> and meaning to the shapes though. From kings, to legendary & important animals to mythical gods and beings.</p>
+        <p>So the next time you're outside during a dark but nice warm summer night, lie down in a patch of fluffy grass, look up and imagine your own shapes & figures from the pinpricks of twinkling lights above. You'll probably end up recognizing more shapes than you would've thought.</p>
+    </section>
+    
+    <!-- Credits & Data -->
+    <section id="section-credits">
+        <div class="background"></div>
+        <div id="credit-text-group">
+            <div id="credit-share">
+                <p id="credit-share-p">If you enjoyed this project, please pass it on to others by sharing it on
+                <!-- https://dev.twitter.com/web/tweet-button/web-intent -->
+                <a href="http://twitter.com/share?text=A visual and interactive story on how current and past cultures across the World have seen their myths and legends in the stars&url=http://www.datasketch.es/may/code/nadieh&via=NadiehBremer" onclick="javascript:window.open(this.href, '', 'menubar=no, toolbar=no, resizable=yes, scrollbars=yes, height=250, width=600'); return false;">Twitter</a> <span class="divider"> • </span>
+                <!-- https://developer.linkedin.com/docs/share-on-linkedin -->
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://www.datasketch.es/may/code/nadieh&title=Figures%20in%20the%20Stars&summary=A%20visual%20and%20interactive%20story%20on%20how%20current%20and%20past%20cultures%20across%20the%20World%20have%20seen%20their%20myths%20and%20legends%20in%20the%20stars&source=data%20sketches" onclick="javascript:window.open(this.href, '', 'menubar=no, toolbar=no, resizable=yes, scrollbars=yes, height=550, width=510'); return false;">LinkedIn</a> <span class="divider"> • </span>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=http://www.datasketch.es/may/code/nadieh" onclick="javascript:window.open(this.href, '', 'menubar=no, toolbar=no, resizable=yes, scrollbars=yes, height=600, width=600'); return false;">Facebook</a> or elsewhere</p>
+                <p class="credit-big">Created with <span class="egyptian" style="font-size: 1.2em;">❤</span> by astronomer & dataviz lover <a href="https://twitter.com/NadiehBremer" target="_new">Nadieh Bremer</a></p>
+                <p class="credit-small" style="margin-top: -1.6em;">See more of her personal & professional works on <a href="https://www.visualcinnamon.com/" target="_new">Visual Cinnamon</a></p>
+            </div>
+
+            <div id="credit-methodology">
+                <p class="credit-small">The data about the stars comes from the <a href="https://github.com/astronexus/HYG-Database">HYG star database</a>. The constellation data comes from <a href="http://stellarium.org/">Stellarium</a>, a free and open source planetarium + a lot of data cleaning,  preparation & analysis to create this final piece.</p>
+                <p class="credit-small">Go to <a href="http://www.datasketch.es/may">this blog</a> to read an in-depth write-up about the data preparation, design, coding & more.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- The modal that pops up when a person node is clicked -->
+    <div class="modal">
+        <div class="modal-inner">
+            <a data-modal-close>x</a>
+            <div class="modal-content"></div>
+        </div>
+    </div>
+
+    <div id="chart-modal" style="display:none">
+        <!-- Everything in here is ported over to the "modal" when clicked on a clickable text or small multiple chart -->
+        <div id="chart-modal-inner">
+            <section id="section-chart-modal" class="section-circular-chart">
+                <div id="chart-container-modal" class="chart-container-circular">
+                    <div id="chart-modal" class="chart-circular">
+                        <div id="chart-modal-note">
+                            <p id="chart-modal-note-top" class="red">Setting-up the Sky Map</p>
+                            <p id="chart-modal-note-bottom">this could possibly take a few seconds...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+    <script>
+        //From https://github.com/benceg/vanilla-modal
+        let simple_modal = new VanillaModal.default()
+
+        //Loaded on body load
+        function loadAllAssets() {
+
+            ///////////////////////////////////////////////////////////////////////////
+            ////////////////////////// Load zodiac images /////////////////////////////
+            ///////////////////////////////////////////////////////////////////////////
+
+            //Create zodiac base dataset
+            let zodiac = {}
+            zodiac[0] = {sign: "aries"}
+            zodiac[30] = {sign: "taurus"}
+            zodiac[60] = {sign: "gemini"}
+            zodiac[90] = {sign: "cancer"}
+            zodiac[120] = {sign: "leo"}
+            zodiac[150] = {sign: "virgo"}
+            zodiac[180] = {sign: "libra"}
+            zodiac[210] = {sign: "scorpio"}
+            zodiac[240] = {sign: "sagittarius"}
+            zodiac[270] = {sign: "capricorn"}
+            zodiac[300] = {sign: "aquarius"}
+            zodiac[330] = {sign: "pisces"}
+
+            for (let key in zodiac) {
+                if (zodiac.hasOwnProperty(key)) {
+                    zodiac[key].img = new Image()
+                    zodiac[key].img.src = "img/zodiac/" + zodiac[key].sign + ".png"
+                    zodiac[key].img.onload = onImgLoad
+                }//if
+            }//for key
+
+            let num_img_loaded = 0
+            const num_img = 12
+            let img_loaded = false
+            function onImgLoad() {
+                num_img_loaded++
+                if (num_img_loaded === num_img) {
+                    img_loaded = true
+                    checkAllLoaded()
+                }//if
+            }//function onImgLoad
+
+            ///////////////////////////////////////////////////////////////////////////
+            ////////////////////////////// Load fonts /////////////////////////////////
+            ///////////////////////////////////////////////////////////////////////////
+
+            let font_loaded = false
+            // //Edge can't handle this
+            // document.fonts.ready.then(() => {
+            //     console.log("ready fonts")
+            // })
+            WebFont.load({
+                google: {
+                    families: ['Glass Antiqua']
+                    // families: ['Cormorant:400,400i']
+                },
+                active: function () {
+                    font_loaded = true
+                    checkAllLoaded()
+                }
+            });
+
+            ///////////////////////////////////////////////////////////////////////////
+            /////////////////////////////// Load data /////////////////////////////////
+            ///////////////////////////////////////////////////////////////////////////
+
+            d3.queue() 
+                .defer(d3.csv, "data/stars.csv")
+                .defer(d3.csv, "data/constellation_links.csv")
+                .defer(d3.csv, "data/constellation_names.csv")
+                .defer(d3.csv, "data/constellations_per_star.csv")
+                .await(dataLoaded)
+
+            let data_loaded = false
+            let stars, const_links, const_names, const_per_star
+            let star_by_id = {}
+            function dataLoaded() {
+                //Put loaded data into the variables
+                [error, stars, const_links, const_names, const_per_star] = [...arguments]
+                if (error) throw error
+
+                stars.forEach(d => {
+                    d.hip = +d.hip
+                    d.ra = +d.ra
+                    d.dec = +d.dec
+                    d.mag = +d.mag
+                    d.absmag = +d.absmag
+                    d.t_eff = +d.t_eff
+                    d.constellations = +d.constellations
+                })//forEach
+
+                const_links.forEach(d => {
+                    d.source = +d.source
+                    d.target = +d.target
+                })//forEach
+
+                const_per_star.forEach(d => {
+                    d.star_id = +d.star_id
+                })//forEach
+
+                stars.forEach(d => {
+                    star_by_id[d.hip] = d
+                })//forEach
+
+                data_loaded = true
+                checkAllLoaded()
+            }//function dataLoaded
+
+            ///////////////////////////////////////////////////////////////////////////
+            ///////////////////////// Run when all loaded /////////////////////////////
+            ///////////////////////////////////////////////////////////////////////////
+
+            function checkAllLoaded() {
+                if(img_loaded && font_loaded && data_loaded) setupStarMaps(stars, star_by_id, const_links, const_names, const_per_star, zodiac)
+            }//function checkAllLoaded
+        }//function loadAllAssets
+    </script>
+</body>
+
+</html>

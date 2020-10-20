@@ -1,0 +1,967 @@
+:root {
+    --body-max-width: 1000px;
+    --title-font: 'Glass Antiqua', cursive;
+    --body-font: 'Poppins', sans-serif;
+    --color-red: #D80833;
+    --scale-factor-circular: 1;
+}
+
+html {
+    --mouse-header-x: 0;
+    --mouse-constellations-x: 0;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--body-font);
+    padding: 0;
+    margin: 0;
+    width: calc(100vw - (100vw - 100%)); /* body width minus scrollbar*/
+    min-width: var(--body-max-width);
+    font-size: 16px;
+}
+
+p {
+    line-height: 1.8;
+    font-size: 16px;
+    margin: 1.75em 0 1em 0;
+}
+p.no-top {
+    margin-top: 0;
+}
+
+a, a:link, a:visited, a:active, .string-click {
+    color: inherit;
+    border-bottom: 0.08em solid #D80833;
+    text-decoration: none;
+}
+
+.string-click {
+    cursor: pointer;
+}
+
+/* ---------- SECTION | GENERAL ---------- */
+
+.section-text,
+.section-mini-chart {
+    position: relative;
+    width: calc(var(--body-max-width) - 2 * 20px);
+    margin: 10px auto 20px auto;
+    padding: 10px 20px;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 1em;
+}
+
+.section-text p,
+#cultures-explanation,
+.chart-container-mini {
+    grid-column: 4 / -1;
+}
+
+.section-text .sidenote,
+.sidenote {
+    grid-column: 1 / span 3;
+    align-self: center;
+    font-size: 0.7em;
+    font-style: italic;
+    line-height: 1.5;
+    color: #585858;
+}
+
+.section-text h2 {
+    font-family: var(--title-font);
+    font-size: 2.8em;
+    font-weight: 400;
+    margin-top: 1.4em;
+    margin-bottom: 0.2em;
+    grid-column: 1 / -1;
+}
+
+.section-text .chart-explanation-text {
+    font-size: 0.85em;
+    color: #585858;
+    margin: 1em 0 0em 0;
+}
+
+.red {
+    color: #D80833;
+}
+.grey {
+    color: #9c9c9c;
+}
+
+.arabic {
+    color: #EFB605;  
+}
+.arabic_moon_stations {
+    color: #EBAF02;  
+}
+.aztec  {
+    color: #E8A400;  
+}
+.belarusian {
+    color: #E69201;  
+}
+.boorong {
+    color: #E47607;  
+}
+.chinese {
+    color: #E45311;  
+}
+.dakota {
+    color: #E3301C;  
+}
+.egyptian {
+    color: #DF1428;   
+}
+.hawaiian_starlines {
+    color: #D80533;  
+}
+.indian {
+    color: #CE003D;  
+}
+.inuit {
+    color: #C30048;  
+}
+.japanese_moon_stations {
+    color: #B80452;  
+}
+.kamilaroi {
+    color: #AC0C5E;  
+}
+.korean {
+    color: #9F166A;  
+}
+.macedonian {
+    color: #932278;
+}
+.maori {
+    color: #852F87;  
+}
+.mongolian {
+    color: #763C95;  
+}
+.navajo {
+    color: #644AA0;   
+}
+.norse {
+    color: #4F56A6;  
+}
+.ojibwe {
+    color: #3963A7;  
+}
+.romanian {
+    color: #2570A2;  
+}
+.sami {
+    color: #148097;  
+}
+.sardinian {
+    color: #0A9087;  
+}
+.siberian {
+    color: #099E77;  
+}
+.tongan {
+    color: #17AA69;  
+}
+.tukano {
+    color: #31B15F;  
+}
+.tupi {
+    color: #55B558;   
+}
+.western {
+    color: #7EB852;  
+}
+
+/* ---------- SECTION | HEADER ---------- */
+
+#section-header {
+    margin-bottom: 10px;
+    width: 100%;
+    height: 500px;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+#header-group {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#chart-header {
+    z-index: -1;
+}
+
+#chart-header .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #001540;
+    background-image: url("../img/full-sky-map/full-sky-header-2x-min.png");
+    background-position-x: calc(var(--mouse-header-x) * 1px);
+    background-position-y: top;
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+}
+
+/* #chart-header canvas {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: -25%;
+    transform: translateX(calc(var(--mouse-header-x) * 1px));
+} */
+
+#title-header-group {
+    z-index: 2;
+    -webkit-transform: translate3d(0,0,0);
+    pointer-events: none;
+    color: white;
+}
+
+#title-header-group h1 {
+    font-family: var(--title-font);
+    font-size: 7em;
+    margin-bottom: 0;
+    margin-top: 0;
+    letter-spacing: 0.03em;
+    font-weight: 400;
+    text-shadow: 0px 0px 5px #000;
+}
+
+#title-header-group h3 {
+    font-size: 1.35em;
+    margin-bottom: 0;
+    margin-top: 0.4em;
+    letter-spacing: 0.04em;
+    font-weight: 300;
+    text-shadow: 1px 0px 2px #000, 0px 1px 2px #000, -1px 0px 2px #000, 0px -1px 2px #000;
+}
+
+/* ---------- SECTION | ORION & MODAL ---------- */
+
+#section-chart-orion {
+    height: 960px;
+    padding: 0 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#section-chart-modal {
+    height: calc(100vh - 20px);
+    max-height: 1060px; /*960px + 100px*/
+    min-width: 600px;
+    width: auto;
+    max-width: calc(100% - 40px - 40px);
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+#chart-orion, #chart-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#chart-container-modal, #chart-modal {
+    height: 100%;
+}
+
+#chart-orion canvas, #chart-modal canvas {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#chart-modal-note {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#canvas-orion, #canvas-modal {
+    z-index: -1;
+}
+#canvas-mini-orion, #canvas-mini-modal {
+    z-index: 2;
+    -webkit-transform: translate3d(0,0,0);
+}
+#svg-orion, #svg-modal {
+    z-index: 0;
+    -webkit-transform: translate3d(0,0,0);
+}
+
+#chart-modal-note {
+    margin: auto;
+    z-index: -2;
+}
+
+#chart-modal-note-top {
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 1em;
+    margin-bottom: 0.2em;
+}
+
+#chart-modal-note-bottom {
+    margin-top: 0.2em;
+    font-style: italic;
+    font-size: 14px;
+}
+
+/* ---------- GENERAL | CIRCULAR CHART LAYOUT ---------- */
+
+.section-circular-chart {
+    max-width: var(--body-max-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.chart-container-circular {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.chart-circular {
+    position: relative;
+    text-align: center;
+}
+
+.chart-circular canvas {
+    pointer-events: none;
+}
+
+.chart-circular svg {
+    overflow: visible;
+}
+
+.chart-circular-mini-map-circle {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5px;
+    cursor: pointer;
+    pointer-events: all;
+    transition: stroke-width 0.4s;
+}
+.chart-circular-mini-map-circle.clicked, .chart-circular-mini-map-circle.active {
+    stroke-width: 4px;
+}
+
+
+.chart-circular-mini-map-name-path {
+    fill: none;
+    pointer-events: none;
+}
+
+.chart-circular-mini-map-culture {
+    font-family: var(--title-font);
+    font-size: 14px;
+    text-anchor: middle;
+    fill: currentColor;
+    pointer-events: none;
+}
+.chart-circular-mini-map-name {
+    font-size: 9px;
+    text-anchor: middle;
+    fill: currentColor;
+    letter-spacing: 0.03em;
+    text-transform: lowercase;
+    font-style: italic;
+    pointer-events: none;
+}
+
+.chart-circular-title {
+    font-size: 14px;
+}
+
+.chart-circular-star-title {
+    font-family: var(--title-font);
+    font-size: 46px;
+    text-transform: inherit;
+    letter-spacing: unset;
+}
+
+.chart-circular-hide-group {
+    text-anchor: middle;
+}
+.chart-circular-hide-group text {
+    pointer-events: none;
+    fill: #001540;
+}
+.chart-circular-text {
+    font-size: 14px;
+}
+.chart-circular-text-culture {
+    font-size: 19px;
+    font-weight: 300;
+    font-style: italic;
+}
+.chart-circular-text-name {
+    font-family: var(--title-font);
+    font-size: 42px;
+}
+
+/* ---------- SECTION | SIRIUS & BIG DIPPER CHART ---------- */
+
+#section-chart-sirius,
+#section-chart-big-dipper  {
+    margin-bottom: 10px;
+    padding: 0;
+    height: 510px;
+}
+
+.chart-container-mini {
+    text-align: center;
+}
+
+#section-text-sirius,
+#section-text-big-dipper,
+#section-text-multiple {
+    margin-bottom: 10px;
+}
+
+#section-text-sirius .chart-explanation-text,
+#section-text-big-dipper .chart-explanation-text {
+    grid-column: 5 / span 7;
+}
+
+#chart-sirius {
+    background-image: url("../img/medium-maps/sky-map-sirius-2x-min.png")
+}
+#chart-big-dipper {
+    background-image: url("../img/medium-maps/sky-map-dubhe-2x-min.png")
+}
+
+#chart-sirius,
+#chart-big-dipper {
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* ---------- SECTION | SMALL MULTIPLE ---------- */
+
+#section-chart-small-multiple {
+    position: relative;
+    width: calc(var(--body-max-width) - 2 * 20px);
+    margin: 10px auto 10px auto;
+    padding: 10px 20px;
+    height: 880px;
+}
+
+#chart-container-small-multiple {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+@supports (display: grid) {
+    #chart-container-small-multiple {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-column-gap: 10px;
+        grid-row-gap: 20px;
+    }
+}
+
+.div-group-small-multiple {
+    color: var(--color-red);
+    border-left: 6px solid currentColor;
+    border-bottom: 6px solid #FFF;
+    background: -webkit-linear-gradient(left, currentColor -220%, #f7f7f7 20%);
+    padding: 15px 0 0 0;
+    margin-bottom: 0;
+    line-height: 0.6;
+    text-align: left;
+    cursor: pointer;
+
+    align-self: center;
+    justify-self: center;
+
+    transition: all 0.4s;
+}
+.div-group-small-multiple:hover {
+    border-bottom: 6px solid currentColor;
+}
+
+@supports not (display: grid) {
+    .div-group-small-multiple {
+        margin: 10px 0;
+    }
+}
+
+.small-multiple-chart-title {
+    font-weight: 600;
+    font-size: 1em;
+    line-height: 1;
+    text-anchor: middle;
+    color: currentColor;
+    padding-left: 10px;
+    margin: 0 auto 0.6em auto;
+    pointer-events: none;
+}
+
+.small-multiple-chart-sub-title {
+    max-width: 150px;
+    height: 45px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 0.7em;
+    line-height: 1.4;
+    color: #1d1d1d;
+    text-anchor: middle;
+    margin: 0.2em 0 1em 0;
+    pointer-events: none;
+}
+
+.div-small-multiple {
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* ---------- SECTION | STATISTICAL CHARTS ---------- */
+
+#section-chart-stats {
+    position: relative;
+    width: calc(var(--body-max-width) - 2 * 20px);
+    margin: 10px auto 10px auto;
+    padding: 10px 20px;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 1em;
+}
+
+#chart-container-stats {
+    grid-column: 1 / -1;
+    min-height: 550px;
+}
+
+#chart-stats-explanation-text {
+    font-size: 12px;
+    color: #585858;
+    margin: 1em auto 0em auto;
+    grid-column: 4 / -1;
+}
+
+.chart-stats {
+    position: relative;
+    text-align: center;
+}
+
+.chart-stats canvas {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#canvas-stats-stars {
+    z-index: -1;
+    pointer-events: none;
+}
+
+#svg-stats-stars {
+    z-index: 2;
+    overflow: visible;
+    -webkit-transform: translate3d(0,0,0);
+}
+
+.chart-stats-title {
+    text-anchor: middle;
+}
+
+.chart-stats-axis-title {
+    font-family: var(--body-font);
+    fill: #000;
+    font-size: 12px;
+    text-transform: lowercase;
+}
+
+.chart-stats-axis-note {
+    font-size: 10px;
+    fill: #4c4c4c;
+}
+
+.chart-stats .axis text {
+    font-family: var(--body-font);
+}
+
+.chart-stats .axis .tick text {
+    fill: #707070;
+}
+
+.chart-stats .axis line, .chart-stats .axis path {
+    stroke: #cacaca;
+}
+
+#info-group-star-name {
+    fill: var(--color-red);
+    font-weight: 600;
+}
+
+#info-group-star-const-name{
+    font-size: 12px;
+    font-style: italic;
+    fill: #838383;
+}
+
+#info-group-star-hip-id {
+    font-size: 12px;
+    font-style: italic;
+    fill: #838383;
+}
+
+#hover-star-marker {
+    fill: none;
+    stroke-width: 1.5px;
+    stroke: var(--color-red);
+}
+
+.annotations {
+    pointer-events: none;
+}
+
+.annotation-note-title {
+    fill: black;
+    font-size: 14px;
+}
+
+.annotation-note-label {
+    font-size: 12px;
+    fill: black;
+}
+
+.annotation-subject path {
+    stroke-linecap: round;
+    stroke-dasharray: 0,5;
+    stroke-width: 2.5px;
+    stroke: #d6d6d6;
+}
+
+.circle-hide .annotation-subject path {
+    display: none;
+}
+
+.annotation-connector path, .annotation-note path {
+    stroke: #d6d6d6;
+    stroke-width: 1.5px;
+}
+
+/* ---------- SECTION | FULL CONSTELLATIONS SKY MAP ---------- */
+
+#section-text-chosen-culture {
+    margin-bottom: 0px;
+}
+
+#section-text-chosen-culture h4 {
+    grid-column: 4 / -1;
+    font-size: 1.1em;
+    margin-bottom: 0.2em;
+}
+
+#chosen-culture-stats {
+    grid-column: 4 / -1;
+    margin-top: 0.5em;
+    margin-bottom: 0.3em;
+}
+#chosen-culture-stats p {
+    color: #585858;
+    font-style: italic;
+    font-size: 12px;
+    margin: 0;
+    text-align: left;
+    line-height: 1.5;
+}
+
+#section-constellations {
+    position: relative;
+    text-align: center;
+    margin-bottom: 0px;
+    width: 100%;
+    height: 650px; 
+    overflow-x: hidden;
+    text-align: center;
+}
+
+#chart-constellations #constellations-background {
+    background-color: #001540;
+    background-image: url("../img/full-sky-map/full-sky-map-2x-min.png");
+}
+#chart-constellations #constellations-lines {
+    background-image: url("../img/full-sky-map/full-sky-map-hawaiian-2x-min.png");
+}
+#chart-constellations #constellations-border-div {
+    height: 630px;
+    color: var(--color-red);
+    border-top: 10px solid currentColor;
+    border-bottom: 10px solid currentColor;
+}
+
+#chart-constellations .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background-position-x: calc(var(--mouse-constellations-x) * 1px);
+    background-position-y: top;
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+
+}
+
+#chart-constellations canvas {
+    display: none;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.chosen-culture-title {
+    color: var(--color-red);
+}
+
+/* ---------- SECTION | CULTURE EXPLANATIONS ---------- */
+
+#section-cultures h2 {
+    margin-top: 0.3em;
+}
+
+#cultures-group {
+    text-align: left;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+@supports (display: grid) {
+    #cultures-group {
+        grid-column: 1 / -1;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+    }
+}
+
+.culture-info-wrapper {
+    height: 88px;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+@supports not (display: grid) {
+    .culture-info-wrapper {
+        width: calc(25% - 2 * 5px);
+        margin: 5px;
+    }
+}
+
+.culture-info {
+    background: #f7f7f7;
+    padding: 8px 8px;
+    border-left: 6px solid black;
+    border-left-color: currentColor;
+    background: -webkit-linear-gradient(left, currentColor -210%, #f7f7f7 20%);
+    pointer-events: none;
+}
+
+.em-divider {
+    color: #c4c4c4;
+}
+
+.culture-name {
+    font-size: 0.95em;
+    margin-top: 0.2em;
+    margin-bottom: 0em;
+    font-weight: 600;
+    pointer-events: none;
+    color: currentColor;
+    transition: color 0.3s;
+}
+.culture-name.active {
+    color: white;
+}
+
+.culture-number, .culture-mean-stars-note {
+    font-size: 10px;
+    font-style: italic;
+    text-transform: lowercase;
+    pointer-events: none;
+    color: #585858;
+    transition: color 0.3s;
+}
+.culture-number.active, .culture-mean-stars-note.active {
+    color: white;
+}
+.culture-number {
+    margin-top: 0.4em;
+    margin-bottom: 0em;
+}
+.culture-mean-stars-note {
+    margin-top: -0.4em;
+    margin-bottom: 0.2em;
+}
+
+.culture-text {
+    font-size: 12px;
+    pointer-events: none;
+    display: none;
+    transition: color 0.3s;
+    color: black;
+    margin-top: 1em;
+    margin-bottom: 0.4em;
+    padding-right: 10px;
+}
+.culture-text.active {
+    color: white;
+}
+
+.culture-mean-stars {
+    background-color: currentColor;
+    height: 3px;
+    width: 0%;
+    margin-bottom: 7px;
+}
+.culture-mean-stars.active {
+    background-color: white;
+}
+
+.culture-info-wrapper:hover {
+    z-index: 2;
+}
+.culture-info-wrapper:hover .culture-info {
+    border-bottom: 6px solid currentColor;
+}
+.culture-info-wrapper:hover .culture-text {
+    display: block;
+}
+
+/* ---------- SECTION | CREDITS ---------- */
+
+#section-credits {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    text-align: center;
+    overflow-x: hidden;
+    color: white;
+    text-align: left;
+    margin-top: 4em;
+    font-size: 17px;
+    font-weight: 300;
+    text-shadow: 1px 0px 2px #001540, 0px 1px 2px #001540, -1px 0px 2px #001540, 0px -1px 2px #001540;
+    /* border-top: 4px solid var(--color-red); */
+}
+
+#section-credits .background {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #001540;
+    background-image: url("../img/full-sky-map/full-sky-header-2x-min.png");
+    background-position-x: left;
+    background-position-y: top;
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+}
+
+#credit-text-group {
+    position: relative;
+    width: var(--body-max-width);
+    margin: 2.5em auto 0 auto;
+    background: rgba(0, 21, 64, 0.4);
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+@supports (display: grid) {
+    #credit-text-group {
+        display: grid;
+        grid-template-columns: 55% auto;
+        grid-column-gap: 2em;
+        align-items: start;
+    }
+}
+
+#credit-share {
+    grid-column: 1;
+    padding-left: 20px;
+}
+
+#credit-methodology {
+    grid-column: 2;
+    padding-right: 20px;
+}
+
+@supports not (display: grid) {
+    #credit-share {
+        width: 55%;
+    }
+    
+    #credit-methodology {
+        width: 40%;
+    }
+}
+
+#credit-share p:first-of-type {
+    margin-top: 20px;
+}
+
+#credit-share-p {
+    font-size: 1.1em;
+}
+
+#section-credits .credit-big {
+    font-size: 1em;
+}
+
+#section-credits .credit-small {
+    font-size: 0.75em;
+}
+
+#credit-text-group .divider {
+    display: inline-block;
+    width: 14px;
+    text-align: center;
+    color: var(--color-red);
+}
